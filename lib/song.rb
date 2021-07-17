@@ -11,15 +11,18 @@ class Song
 
   @@songs = []
 
-  # def initialize
-  #   self.class.all << self
-  # end
-
   def self.all
     @@songs
   end
 
+  # Original: passes tests
+  # def artist=(artist)
+  #   @artist = artist
+  # end
+
+  # Additionasl logic from official solutions also passes tests:
   def artist=(artist)
     @artist = artist
+    artist.add_song(self) unless artist.songs.include?(self)
   end
 end
